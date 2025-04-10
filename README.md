@@ -1,20 +1,16 @@
-Introduction
-Hey there! 
-Gemini Clone is a fun and intuitive web app built with a love for clean design and cool AI tech. It gives you a super smooth experience chatting with Google’s Gemini model — with real-time responses, a typing effect that feels natural, and a clean, modern UI.
+INTRODUCTION 
 
-Features
- Core Features
+Gemini Clone is a sleek and interactive web app that brings conversations with Google’s Gemini model to life. Designed with simplicity and usability in mind, it offers a smooth, real-time chat experience — complete with typing animations and a clean, modern UI.
 
-A responsive chat interface that feels natural to use
+FEATURES 
 
-Typing animation to mimic real conversation
+- Interactive Chat Interface – A responsive design that feels natural and intuitive.  
+- Typing Animation – Simulates real-time conversation for a more engaging experience.  
+- Powered by Gemini API – Smart, accurate replies using Google’s Gemini model.
 
-Powered by the Google Gemini API for smart and accurate replies
+ Built With  
 
-Built With
+- React – For fast, component-based frontend development.  
+- Custom CSS – To achieve a polished, minimalist design.  
 
-React Framework:React is used for fast, component-based development
-
-CSS Styling:Custom CSS for a polished, minimal look
-
-<p align="center">Made with 💙 by <strong>Saumya Prakash </strong>. Thanks for stopping by — happy building! </p>
+<p align="center">Made with ❤️ by <strong>Saumya Prakash</strong>. Thank you for exploring — happy building!</p>
