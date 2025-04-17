@@ -1,4 +1,4 @@
-import {createContext, useState} from "react";
+import React, {createContext, useState, useEffect} from "react";
 import runChat from "../config/gemini";
 
 export const Context = createContext();
@@ -11,6 +11,16 @@ const ContextProvider = (props) => {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
+
+   
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        return localStorage.getItem("theme") === "dark";
+    });
+
+    useEffect(() => {
+        document.body.className = isDarkMode ? "dark" : "light";
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    }, [isDarkMode]);
 
     const delayPara = (index, nextWord) => {
         setTimeout(function () {
@@ -70,7 +80,9 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
-        newChat
+        newChat,
+        isDarkMode,         
+        setIsDarkMode 
     }
     return (
         <Context.Provider value={contextValue}>

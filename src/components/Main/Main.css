@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     overflow: hidden;
 }
@@ -23,6 +24,52 @@ body {
     border-radius: 50%;
 }
 
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background-color: #333;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
 .main-container {
     max-width: 900px;
     margin: auto;
@@ -36,16 +83,13 @@ body {
 }
 
 .main .greet span {
-    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
-    
+    background: linear-gradient(16deg, #4b90ff, #ff5546);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .main .cards {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 15px 1fr 15px 1fr 15px 1fr;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 20px;
@@ -93,6 +137,7 @@ body {
     margin: auto;
     background-color: white;
     box-shadow: #ffffff 0 -20px 50px;
+    width: 100%;
 }
 
 .search-box {
@@ -149,7 +194,6 @@ body {
     outline: none;
     border-radius: 100vh;
     cursor: pointer;
-    display: -ms-grid;
     display: grid;
     place-items: center;
 }
@@ -176,7 +220,7 @@ body {
 }
 
 .result-title p {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .result img {
@@ -206,14 +250,9 @@ body {
     animation: loader 3s infinite linear;
 }
 
-
 @keyframes loader {
-    0% {
-        background-position: -800px 0;
-    }
-    100% {
-        background-position: 800px 0;
-    }
+    0% { background-position: -800px 0; }
+    100% { background-position: 800px 0; }
 }
 
 .result-data > p {
@@ -223,11 +262,11 @@ body {
     margin-bottom: 10vh;
 }
 
-/* for tablets and less sized screens only */
+/* Responsive Design */
 @media (max-width: 800px) {
     .search-box {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
         border-radius: 15px;
         padding: 10px 20px;
         gap: 10px;
@@ -242,50 +281,49 @@ body {
         width: 20px;
     }
 
-    .search-box div {
-        gap: 5px;
-        margin-left: auto;
-    }
+    .search-box div { gap: 5px; margin-left: auto; }
 
-    .greet {
-        margin: 0 0;
-        padding-left: 22px;
-    }
+    .greet { padding-left: 22px; }
 
-    .main .greet {
-        font-size: 2.5rem;
-        line-height: 1.1;
-    }
+    .main .greet { font-size: 2.5rem; line-height: 1.1; }
 
-    .main {
-        margin-left: 80px;
-    }
+    .main { margin-left: 80px; }
 }
 
-/* for laptops and bigger sized screens only */
 @media (min-width: 800px) {
-    .greet {
-        margin-bottom: 25px;
-    }
-
-    .main-bottom {
-        max-width: 900px;
-        width: -webkit-fill-available;
-    }
+    .greet { margin-bottom: 25px; }
+    .main-bottom { max-width: 900px; }
 }
 
-/* for mobiles only */
 @media (max-width: 450px) {
-    .main .greet {
-        font-size: 2.15rem;
-        line-height: 1.1;
-    }
-
-    .result-data-icon {
-        display: none;
-    }
-
-    .result-data > p {
-        margin-bottom: 30vh;
-    }
+    .main .greet { font-size: 2.15rem; line-height: 1.1; }
+    .result-data-icon { display: none; }
+    .result-data > p { margin-bottom: 30vh; }
 }
+
+/* Dark/Light Mode Support */
+body.dark { background-color: #121212; color: #f0f0f0; }
+body.light { background-color: #ffffff; color: #000000; }
+
+.main.dark, body.dark .main {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+.main.light, body.light .main {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark .main .card { background-color: #1f1f1f; }
+body.dark .main .card:hover { background-color: #2a2a2a; }
+body.dark .search-box { background-color: #1f1f1f; }
+body.dark .icon-container button:hover { background-color: #2a2a2a; }
+body.dark .main-bottom {
+    background-color: #1a1a1a;
+    box-shadow: #1a1a1a 0 -20px 50px;
+}
+body.dark .result-data > p { color: #e0e0e0; }
+body.dark .main .nav,
+body.dark .main .greet,
+body.dark .main .bottom-info,
+body.dark .main .card p { color: #e0e0e0; }
